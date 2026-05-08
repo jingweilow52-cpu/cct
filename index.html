@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Time in Malaysia</title>
+
+  <style>
+    :root {
+      --primary: #6a11cb;
+      --secondary: #2575fc;
+      --accent: #ff6ec7;
+      --background: #f5f7ff;
+      --card: #ffffff;
+      --text: #1f2a44;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #f5f7ff, #e3e8ff);
+      color: var(--text);
+    }
+
+    header {
+      text-align: center;
+      padding: 90px 20px; /* slightly more space since subtitle is gone */
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 0 0 25px 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+    }
+
+    .card h3 {
+      margin-top: 10px;
+      color: var(--primary);
+      font-size: 1.4rem;
+    }
+
+    .iframe-container {
+      margin: 15px 0;
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>My time in Malaysia</h1>
+  </header>
+
+  <div class="container">
+    <div class="grid">
+
+      <!-- 9 identical cards -->
+      <div class="card">
+        <h3>Section Title</h3>
+        <div class="iframe-container">
+          <iframe src="about:blank"></iframe>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+
+      <div class="card"><h3>Section Title</h3><div class="iframe-container"><iframe src="about:blank"></iframe></div><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="card"><h3>Section Title</h3><div class="iframe-container"><iframe src="about:blank"></iframe></div><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="card"><h3>Section Title</h3><div class="iframe-container"><iframe src="about:blank"></iframe></div><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="card"><h3>Section Title</h3><div class="iframe-container"><iframe src="about:blank"></iframe></div><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="card"><h3>Section Title</h3><div class="iframe-container"><iframe src="about:blank"></iframe></div><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="card"><h3>Section Title</h3><div class="iframe-container"><iframe src="about:blank"></iframe></div><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="card"><h3>Section Title</h3><div class="iframe-container"><iframe src="about:blank"></iframe></div><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="card"><h3>Section Title</h3><div class="iframe-container"><iframe src="about:blank"></iframe></div><p>Lorem ipsum dolor sit amet.</p></div>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2026 My Malaysia Experience
+  </footer>
+
+</body>
+</html>
