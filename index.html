@@ -3,1074 +3,272 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Time in Malaysia</title>
+  <title>My Time in Malaysia - Neon Math Portfolio</title>
 
   <style>
+    :root{
+      --bg:#05070c;
+      --grid:rgba(0,229,255,0.07);
+      --cyan:#00e5ff;
+      --green:#00ff9a;
+      --blue:#4da3ff;
+      --text:#e8f7ff;
+      --muted:#a7b7c6;
+      --card:rgba(255,255,255,0.06);
+      --stroke:rgba(0,229,255,0.25);
+    }
 
     *{
       box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #2f80ed;
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0,255,200,0.08), transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(77,163,255,0.08), transparent 40%),
+        var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
     }
 
-    header {
-      text-align: center;
-      color: white;
-      padding: 30px 20px 10px;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size:50px 50px;
+      pointer-events:none;
+      z-index:0;
     }
 
-    header h1 {
-      font-size: 52px;
-      margin: 0;
-      font-weight: bold;
+    header{
+      text-align:center;
+      padding:40px 20px 20px;
+      position:relative;
+      z-index:2;
     }
 
-    .container {
-      width: 95%;
-      margin: auto;
-      padding-bottom: 40px;
+    header h1{
+      font-size:54px;
+      font-weight:800;
+      letter-spacing:1px;
+      background:linear-gradient(90deg,var(--cyan),var(--green),var(--blue));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 20px rgba(0,255,200,0.3);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+    .container{
+      width:95%;
+      margin:auto;
+      padding-bottom:60px;
+      position:relative;
+      z-index:2;
     }
 
-    @media (max-width: 1000px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:25px;
     }
 
-    @media (max-width: 700px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      header h1 {
-        font-size: 38px;
-      }
+    @media(max-width:1000px){
+      .grid{grid-template-columns:repeat(2,1fr);}
     }
 
-    .card {
-      background: white;
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    @media(max-width:700px){
+      .grid{grid-template-columns:1fr;}
+      header h1{font-size:36px;}
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    .card{
+      background:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:18px;
+      padding:18px;
+      backdrop-filter:blur(12px);
+      box-shadow:0 0 20px rgba(0,255,200,0.08);
+      transition:all 0.3s ease;
+      position:relative;
+      overflow:hidden;
     }
 
-    .card a {
-      display: block;
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      color: #1f1f1f;
-      margin-bottom: 15px;
-      text-decoration: none;
-      transition: color 0.2s ease;
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 30px rgba(0,255,200,0.25);
+      border-color:rgba(0,255,200,0.6);
     }
 
-    .card a:hover {
-      color: #2f80ed;
+    .card a{
+      display:block;
+      text-align:center;
+      font-size:20px;
+      font-weight:700;
+      margin-bottom:12px;
+      color:var(--text);
+      text-decoration:none;
     }
 
-    .iframe-container {
-      position: relative;
-      width: 100%;
-      padding-top: 75%;
-      overflow: hidden;
-      border-radius: 12px;
-      margin-bottom: 20px;
+    .card a:hover{
+      color:var(--cyan);
+      text-shadow:0 0 10px var(--cyan);
     }
 
-    .iframe-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
+    .iframe-container{
+      position:relative;
+      width:100%;
+      padding-top:75%;
+      border-radius:12px;
+      overflow:hidden;
+      margin-bottom:15px;
+      border:1px solid rgba(0,255,200,0.2);
     }
 
-    .section-heading {
-      color: #4f8f73;
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 15px;
-      margin-bottom: 10px;
+    .iframe-container iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:none;
     }
 
-    .card p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: #555;
-      margin-top: 0;
+    .section-heading{
+      font-size:14px;
+      font-weight:700;
+      color:var(--green);
+      margin:10px 0;
+      text-transform:uppercase;
+      letter-spacing:1px;
     }
 
+    .card p{
+      font-size:14px;
+      line-height:1.6;
+      color:var(--muted);
+      white-space:pre-wrap;
+    }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>My Time in Malaysia</h1>
-  </header>
+<header>
+  <h1>My Time in Malaysia</h1>
+</header>
 
-  <div class="container">
+<div class="container">
+<div class="grid">
 
-    <div class="grid">
-
-      <!-- CARD 1 -->
+<!-- CARD 1 -->
 <div class="card">
-
-  <a href="#" target="_blank">
-    Absolute Value Function
-  </a>
-
-  <div class="iframe-container">
-    <iframe src="about:blank"></iframe>
-  </div>
-
-  <div class="section-heading">
-    Transformations
-  </div>
-
+  <a href="#">Absolute Value Function</a>
+  <div class="iframe-container"><iframe src="about:blank"></iframe></div>
+  <div class="section-heading">Transformations</div>
   <p>
-    I chose this photo because the Petronas Twin Towers are an iconic
-    landmark of Malaysia and I find them very interesting, this is a photo
-    I took during my first visit there.
-    <br><br>
+I chose this photo because the Petronas Twin Towers are an iconic landmark of Malaysia...
 
-    To model the sign appearing in the photo, I first determined that its
-    shape is very similar to an absolute value function, so I chose the
-    parent function y = |x| as my starting point.
-    <br><br>
-
-    By observing the direction of the angle formed by the two rays in the
-    image, I noticed that it opens downward rather than upward.
-    <br><br>
-
-    This indicates a reflection across the y-axis, so I modified the
-    function to y = -|x| to match the orientation of the graph.
-    <br><br>
-
-    I then applied a vertical stretch because the graph appeared steeper
-    than the parent function, resulting in a coefficient of −1.6.
-    <br><br>
-
-    Next, I considered the horizontal transformations.
-    <br><br>
-
-    The expression inside the absolute value was 0.9(x+3.9).
-    <br><br>
-
-    The x+3.9 shifts the graph horizontally 3.9 units to the left,
-    placing the vertex at approximately x=−3.9.
-    <br><br>
-
-    The factor 0.9 causes a slight horizontal stretch, making the graph
-    wider than the basic absolute value function.
-    <br><br>
-
-    Finally, I applied a vertical translation of 15.8 units upward so that
-    the vertex aligned with the highest point of the graph in the image.
-    <br><br>
-
-    This resulted in the function
-    <br><br>
-
-    f(x)=−1.6∣0.9(x+3.9)∣+15.8
-    <br><br>
-
-    which closely models the shape in the photograph.
-    <br><br>
-
-    <strong>Summary of Transformations:</strong>
-    <br><br>
-
-    • Reflection across the x-axis →∣x∣→−∣x∣
-    <br><br>
-
-    • Vertical stretch by a factor of 1.6 →
-    −∣x∣→−1.6∣x∣
-    <br><br>
-
-    • Horizontal stretch by a factor of 1/0.9 →
-    −1.6∣x∣→−1.6∣0.9x∣
-    <br><br>
-
-    • Horizontal translation of 3.9 units to the left →
-    −1.6∣0.9x∣→−1.6∣0.9(x+3.9)∣
-    <br><br>
-
-    • Vertical translation of 15.8 units upward →
-    −1.6∣0.9(x+3.9)∣→−1.6∣0.9(x+3.9)∣+15.8
-    <br><br>
-
-    <strong>Domain and Range</strong>
-    <br><br>
-
-    The domain of my function is
-    <br><br>
-
-    D:{x∈R∣−8≤x≤0}.
-    <br><br>
-
-    I limited the domain to the portion of the graph that was visible in
-    the photograph.
-    <br><br>
-
-    If I had taken the picture so that it included more of the object,
-    the domain may have been larger.
-    <br><br>
-
-    As a result, my model is only valid for the section captured in the
-    image.
-    <br><br>
-
-    The parent function y=∣x∣ has a domain of
-    D:{x∈R} and a range of
-    R:{y∈R∣y≥0}.
-    <br><br>
-
-    This means the function is defined for all real x-values and produces
-    only non-negative output values.
-    <br><br>
-
-    The parent function has a vertex at (0,0), where the graph changes
-    direction.
-    <br><br>
-
-    After applying transformations, the graph opens downward because of
-    the reflection across the x-axis.
-    <br><br>
-
-    This means the vertex becomes the maximum point of the graph.
-    <br><br>
-
-    Since the function is restricted to the interval −8≤x≤0, the range can
-    be determined by evaluating the function at the vertex and at the
-    endpoints of the domain.
-    <br><br>
-
-    Since the function is continuous on the restricted interval, the range
-    can be determined by evaluating the function at the key points of the
-    domain.
-    <br><br>
-
-    Because this absolute value function opens downward, the maximum value
-    occurs at the vertex.
-    <br><br>
-
-    By evaluating at x=−3.9, I obtained an output value of 15.8.
-    <br><br>
-
-    Then, by evaluating the endpoints x=−8 and x=0, I obtained approximate
-    output values of 9.90 and 10.18.
-    <br><br>
-
-    Therefore, the range of the function is approximately
-    <br><br>
-
-    R:{y∈R∣9.90≤y≤15.80}.
+f(x)=−1.6∣0.9(x+3.9)∣+15.8
   </p>
-
 </div>
 
-    <!-- CARD 2 -->
+<!-- CARD 2 -->
 <div class="card">
-
-  <a href="https://www.desmos.com/calculator/dqq1jefht2"
-     target="_blank">
-    Secant Function
-  </a>
-
+  <a href="https://www.desmos.com/calculator/dqq1jefht2">Secant Function</a>
   <div class="iframe-container">
-    <iframe
-      src="https://www.desmos.com/calculator/dqq1jefht2?embed"
-      frameborder="0">
-    </iframe>
+    <iframe src="https://www.desmos.com/calculator/dqq1jefht2?embed"></iframe>
   </div>
-
-  <div class="section-heading">
-    Transformations
-  </div>
-
+  <div class="section-heading">Transformations</div>
   <p>
-    I chose this photo because it captures one of my memorable experiences in Malaysia. While visiting the lake area at Sunway South Quay Lake, I noticed this large squirrel sculpture and was immediately attracted by its curved tail and unique design. To model the curve appearing in the photo, I first determined that its shape is very similar to a secant function, so I chose the parent function y=sec(x) as my starting point. By observing the direction of the curve in the image, I noticed that the graph opens downward rather than upward. This indicates a reflection across the x-axis, so I modified the function to y=-sec(x) to match the orientation of the graph.
-    <br><br>
-
-    I then applied a vertical stretch because the graph appeared steeper than the parent function, resulting in a coefficient of −4.6. Next, I considered the horizontal transformations. The expression inside the secant function was 1.195(x−0.865). The x−0.865 shifts the graph horizontally 0.865 units to the right, placing the center of the curve at approximately x=0.865. The factor 1.195 causes a horizontal compression, making the graph narrower than the basic secant function.
-    <br><br>
-
-    Finally, I applied a vertical translation of 5.8 units upward so that the curve aligned with the correct position in the image. This resulted in the function
-    <br><br>
-
-    f(x)=−4.6sec(1.195(x−0.865))+5.8
-    <br><br>
-
-    which closely models the shape in the photograph.
-    <br><br>
-
-    <strong>Summary of Transformations:</strong>
-    <br><br>
-
-    • Reflection across the x-axis → sec(x)→−sec(x)
-    <br>
-    • Vertical stretch by a factor of 4.6 → −sec(x)→−4.6sec(x)
-    <br>
-    • Horizontal compression by a factor of 1/1.195 → −4.6sec(x)→−4.6sec(1.195x)
-    <br>
-    • Horizontal translation of 0.865 units to the right → −4.6sec(1.195x)→−4.6sec(1.195(x−0.865))
-    <br>
-    • Vertical translation of 5.8 units upward → −4.6sec(1.195(x−0.865))→−4.6sec(1.195(x−0.865))+5.8
+I chose this photo because it captures one of my memorable experiences in Malaysia...
+f(x)=−4.6sec(1.195(x−0.865))+5.8
   </p>
-
-  <div class="section-heading">
-    Domain and Range
-  </div>
-
-  <p>
-    The domain of my function is D:{x∈R∣0.6≤x≤1.05}. I limited the domain to the portion of the graph that was visible in the photograph. If I had taken the picture so that it included more of the object, the domain may have been larger. As a result, my model is only valid for the section captured in the image.
-    <br><br>
-
-    The parent function y=sec(x) has a domain of D:{x∈R∣x≠ π /2+kπ, k∈Z} and a range of R:{y∈R∣y≤−1 or y≥1}. This means the function is not defined where the cosine value is equal to zero, and the function produces output values greater than or equal to 1 or less than or equal to -1. The parent function has a minimum point at (0,1) on its central branch.
-    <br><br>
-
-    After applying transformations, the graph opens downward because of the reflection across the x-axis. This means the point at the center of the curve becomes the maximum point of the graph. Since the function is restricted to the interval 0.6≤x≤1.05, the range can be determined by evaluating the function at the center point and at the endpoints of the domain.
-    <br><br>
-
-    Since the function is continuous on the restricted interval, the range can be determined by evaluating the function at the key points of the domain. Because this secant function opens downward, the maximum value occurs at the center of the curve. By evaluating at x=0.865, I obtained an output value of 1.2. Then, by evaluating the endpoints x=0.6 and x=1.05, I obtained approximate output values of 0.96 and 1.09.
-    <br><br>
-
-    Therefore, the range of the function is approximately
-    <br><br>
-
-    R:{y∈R∣0.96≤y≤1.20}
-  </p>
-
 </div>
 
-      <!-- CARD 3 -->
+<!-- CARD 3 -->
 <div class="card">
-
-  <a href="#"
-     target="_blank">
-    Exponential Function
-  </a>
-
-  <div class="iframe-container">
-    <iframe src="about:blank"></iframe>
-  </div>
-
-  <div class="section-heading">
-    Transformations
-  </div>
-
+  <a href="#">Exponential Function</a>
+  <div class="iframe-container"><iframe src="about:blank"></iframe></div>
+  <div class="section-heading">Transformations</div>
   <p>
-    I chose this photo because of its striking artistic appeal. The lines are so fluid, and the statue captures such beauty.
-    <br><br>
-
-    To model the curve appearing in the photo, I first determined that its shape is very similar to an exponential function, so I chose the parent function y=2.1ˣas my starting point. By observing the curve in the image, I noticed that the graph increases from left to right, which matches the general shape of an exponential growth function.
-    <br><br>
-
-    Next, I considered the horizontal transformations. The expression in the exponent was 2.6(x−1.2). The x−1.2 shifts the graph horizontally 1.2 units to the right, placing the key point of the exponential function at approximately x=1.2. The factor 2.6 causes a horizontal compression by a factor of 1/2.6, making the graph narrower and steeper than the parent exponential function.
-    <br><br>
-
-    Finally, I applied a vertical translation of 0.8 units upward so that the curve aligned with the correct position in the image. This resulted in the function
-    <br><br>
-
-    f(x)=[2.1^2.6(x−1.2)]+0.8
-    <br><br>
-
-    which closely models the shape in the photograph.
-    <br><br>
-
-    Summary of Transformations:
-    <br><br>
-
-    • No reflection
-    <br><br>
-
-    • Horizontal compression by a factor of 1/2.6→ 2.1ˣ→2.1^2.6x
-    <br><br>
-
-    • Horizontal translation of 1.2 units to the right → 2.1^2.6x
-    →2.1^2.6(x−1.2)
-    <br><br>
-
-    • Vertical translation of 0.8 units upward → 2.1^2.6(x−1.2)
-    →[2.1^2.6(x−1.2)]+0.8
-    <br><br>
-
-    Domain and Range
-    <br><br>
-
-    The domain of my function is
-    <br><br>
-
-    D:{x∈R∣−0.1≤x≤1.3}.
-    <br><br>
-
-    I limited the domain to the portion of the graph that was visible in the photograph. If I had taken the picture so that it included more of the object, the domain may have been larger. As a result, my model is only valid for the section captured in the image.
-    <br><br>
-
-    The parent function y=2.1 ˣ has a domain ofD:{x∈R}and a range of
-    R:{y∈R∣y>0}.This means the function is defined for all real x-values and only produces positive output values. The parent exponential function has a horizontal asymptote at y=0.
-    <br><br>
-
-    After applying transformations, my function also has a horizontal asymptote. The vertical translation moves the horizontal asymptote from y=0 to y=0.8. Since the function is restricted to the interval −0.1≤x≤1.3, the graph only shows a small visible section of the exponential curve. The function does not have any vertical asymptotes, and it remains continuous on the restricted interval.
-    <br><br>
-
-    Since the function is continuous on the restricted interval, the range can be determined by evaluating the function at the endpoints of the domain. Because this exponential function increases over the given interval, the minimum value occurs at the left endpoint, and the maximum value occurs at the right endpoint. By evaluating at x=−0.1, I obtained an approximate output value of 0.88. Then, by evaluating at x=1.3, I obtained an approximate output value of 2.01.
-    <br><br>
-
-    Therefore, the range of the function is approximately
-    <br><br>
-
-    R:{y∈R∣0.88≤y≤2.01}.
+I chose this photo because of its striking artistic appeal...
+f(x)=[2.1^2.6(x−1.2)]+0.8
   </p>
-
 </div>
 
-      <!-- CARD 4 -->
+<!-- CARD 4 -->
 <div class="card">
-
-  <a href="#"
-     target="_blank">
-    Polynomial Function of Degree 3
-  </a>
-
-  <div class="iframe-container">
-    <iframe src="about:blank"></iframe>
-  </div>
-
-  <div class="section-heading">
-    Transformations
-  </div>
-
+  <a href="#">Polynomial Function of Degree 3</a>
+  <div class="iframe-container"><iframe src="about:blank"></iframe></div>
+  <div class="section-heading">Transformations</div>
   <p>
-    I chose this photo because this waterfall is the most spectacular artificial waterfall I have seen in Malaysia.
-    <br><br>
-
-    To simulate the symbol appearing in the photo, I first noticed that its shape closely resembles a polynomial function of degree 3,So I selected the parent function y = x³ as the starting point. By observing the direction of the curve in the image, I noticed that the graph keeps the same general orientation as the parent cubic function. Since the coefficient is positive, there is no reflection across the x-axis, so the graph continues to increase from left to right.
-    <br><br>
-
-    I then applied a vertical stretch because the graph appeared steeper than the parent function, resulting in a coefficient of 3.2. Next, I considered the horizontal transformations. The expression inside the cubic function was 1.1(x+0.9). The x+0.9 shifts the graph horizontally 0.9 units to the left, placing the center point of the curve at approximately x=−0.9. The factor 1.1 causes a horizontal compression, making the graph slightly narrower than the basic cubic function.
-    <br><br>
-
-    Finally, I applied a vertical translation of 1.85 units upward so that the center of the curve aligned with the correct position in the image. This resulted in the function
-    <br><br>
-
-    f(x)=3.2(1.1(x+0.9))³ +1.85
-    <br><br>
-
-    which closely models the shape in the photograph.
-    <br><br>
-
-    Summary of Transformations:
-    <br><br>
-
-    • No reflection across the x-axis
-    <br><br>
-
-    • Vertical stretch by a factor of 3.2 → x³ →3.2x³
-    <br><br>
-
-    • Horizontal compression by a factor of 1/1.1 → 3.2x³ →3.2(1.1x)³
-    <br><br>
-
-    • Horizontal translation of 0.9 units to the left → 3.2(1.1x)³ →3.2(1.1(x+0.9))³
-    <br><br>
-
-    • Vertical translation of 1.85 units upward → 3.2(1.1(x+0.9))³ →3.2(1.1(x+0.9))³ +1.85
-    <br><br>
-
-    Domain and Range
-    <br><br>
-
-    The domain of my function is D:{x∈R∣−1.38≤x≤−0.67}. I limited the domain to the portion of the graph that was visible in the photograph. If I had taken the picture so that it included more of the object, the domain may have been larger. As a result, my model is only valid for the section captured in the image.
-    <br><br>
-
-    The parent function y=x³ has a domain of D:{x∈R} and a range of R:{y∈R}. This means the function is defined for all real x-values and can produce all real output values. The parent function has an inflection point at (0,0), where the graph changes concavity.
-    <br><br>
-
-    After applying transformations, the graph is shifted left and upward, and it becomes steeper due to the vertical stretch and horizontal compression. The inflection point is moved to approximately (−0.9,1.85). Since the function is restricted to the interval −1.38≤x≤−0.67, the range can be determined by evaluating the function at the endpoints of the domain.
-    <br><br>
-
-    Since the function is continuous on the restricted interval, the range can be determined by evaluating the function at the key points of the domain. Because this cubic function is increasing over the given interval, the minimum value occurs at the left endpoint, and the maximum value occurs at the right endpoint. By evaluating at x=−1.38, I obtained an approximate output value of 1.38. Then, by evaluating at x=−0.67, I obtained an approximate output value of 1.90.
-    <br><br>
-
-    Therefore, the range of the function is approximately
-    <br><br>
-
-    R:{y∈R∣1.38≤y≤1.90}
+I chose this photo because this waterfall is the most spectacular...
+f(x)=3.2(1.1(x+0.9))³ +1.85
   </p>
-
 </div>
 
-    
-      <!-- CARD 5 -->
+<!-- CARD 5 -->
 <div class="card">
-
-  <a href="#" target="_blank">
-    Polynomial Function of Degree 2
-  </a>
-
-  <div class="iframe-container">
-    <iframe src="about:blank"></iframe>
-  </div>
-
-  <div class="section-heading">
-    Transformations
-  </div>
-
+  <a href="#">Polynomial Function of Degree 2</a>
+  <div class="iframe-container"><iframe src="about:blank"></iframe></div>
+  <div class="section-heading">Transformations</div>
   <p>
-    I picked this photo because I noticed the curved shape of Usagi’s head from Chiikawa looks just like a parabola. Since it opens upward like a regular U-shape, I knew I could model it using a quadratic function with a positive leading coefficient. It's a cool example of finding math in normal things around Sunway. To build the equation, I started with the basic parent function y=x^2 because the shape is a standard degree 2 polynomial. Looking at the photo, the curve doesn't flip upside down, so the coefficient stays positive and there's no reflection over the x-axis.
-    <br><br>
-
-    I then applied a vertical compression because the graph appeared flatter than the parent function, resulting in a coefficient of 0.2. Next, I considered the horizontal transformations. The expression inside the squared function was −1.3(x+1.2). The x+1.2 shifts the graph horizontally 1.2 units to the left, placing the vertex at approximately x=−1.2. The factor −1.3 causes a horizontal compression by a factor of 1/1.3. Although the negative sign represents a reflection across the y-axis, this does not visibly change the shape of a quadratic function because it is symmetric.
-    <br><br>
-
-    Finally, I applied a vertical translation of 0.64 units upward so that the vertex aligned with the lowest point of the curve in the image. This resulted in the function
-    <br><br>
-
-    f(x)=0.2(−1.3(x+1.2))²+0.64
-    <br><br>
-
-    which closely models the shape in the photograph.
-    <br><br>
-
-    <strong>Summary of Transformations:</strong>
-    <br><br>
-
-    • No reflection across the x-axis
-    <br><br>
-
-    • Vertical compression by a factor of 0.2 → x²→0.2x²
-    <br><br>
-
-    • Horizontal compression by a factor of 1/1.3→ 0.2x²→0.2(−1.3x)²
-    <br><br>
-
-    • Horizontal translation of 1.2 units to the left → 0.2(−1.3x)²→0.2(−1.3(x+1.2))²
-    <br><br>
-
-    • Vertical translation of 0.64 units upward → 0.2(−1.3(x+1.2))²→0.2(−1.3(x+1.2))²+0.64
-    <br><br>
-
-    <strong>Domain and Range</strong>
-    <br><br>
-
-    The domain of my function is
-    <br><br>
-
-    D:{x∈R∣−1.25≤x≤−0.6}.
-    <br><br>
-
-    I limited the domain to the portion of the graph that was visible in the photograph. If I had taken the picture so that it included more of the object, the domain may have been larger. As a result, my model is only valid for the section captured in the image.
-    <br><br>
-
-    The parent function y=x²has a domain ofD:{x∈R}and a range ofR:{y∈R∣y≥0}.This means the function is defined for all real x-values and produces only non-negative output values. The parent function has a vertex at (0,0), where the graph changes direction.
-    <br><br>
-
-    After applying transformations, the graph still opens upward because there is no reflection across the x-axis. This means the vertex becomes the minimum point of the graph. The vertex is shifted to approximately (−1.2,0.64). Since the function is restricted to the interval −1.25≤x≤−0.6, the range can be determined by evaluating the function at the vertex and at the endpoints of the domain.
-    <br><br>
-
-    Since the function is continuous on the restricted interval, the range can be determined by evaluating the function at the key points of the domain. Because this quadratic function opens upward, the minimum value occurs at the vertex. By evaluating at x=−1.2, I obtained an output value of 0.64. Then, by evaluating the endpoints x=−1.25 and x=−0.6, I obtained approximate output values of 0.64 and 0.76.
-    <br><br>
-
-    Therefore, the range of the function is approximately
-    <br><br>
-
-    R:{y∈R∣0.64≤y≤0.76}.
+I picked this photo because I noticed the curved shape of Usagi...
+f(x)=0.2(−1.3(x+1.2))²+0.64
   </p>
-
 </div>
 
-      <!-- CARD 6 -->
+<!-- CARD 6 -->
 <div class="card">
-
-  <a href="#" target="_blank">
-    Rational Function
-  </a>
-
-  <div class="iframe-container">
-    <iframe src="about:blank"></iframe>
-  </div>
-
-  <div class="section-heading">
-    Transformations
-  </div>
-
+  <a href="#">Rational Function</a>
+  <div class="iframe-container"><iframe src="about:blank"></iframe></div>
+  <div class="section-heading">Transformations</div>
   <p>
-    I chose this photo because it brings back a really wonderful memory from when my friends and I went on a trip to Desaru Beach and saw this incredibly cool octopus sculpture. Beyond being a meaningful snapshot of our time exploring together, I noticed that the natural curve of one of the octopus's tentacles followed a smooth, sweeping path that looked exactly like a rational function. To model the curve appearing in the photo, I first determined that its shape is very similar to a rational function, so I chose the parent function y=x⁻¹ as my starting point. By observing the curve in the image, I noticed that the graph follows the shape of one branch of a reciprocal function, which approaches asymptotes but does not touch them.
-    <br><br>
-
-    I then applied a reflection across the x-axis because of the negative coefficient in front of the function. This changed the orientation of the graph and helped it match the direction of the curve in the photo. I also applied a vertical compression because the graph appeared less steep than the parent function, resulting in a coefficient of −0.9. Next, I considered the horizontal transformations. The expression inside the function was 10(x−0.3). The x−0.3 shifts the graph horizontally 0.3 units to the right, placing the vertical asymptote at approximately x=0.3. The factor 10 causes a horizontal compression by a factor of 1/10, making the graph narrower than the basic reciprocal function.
-    <br><br>
-
-    Finally, I applied a vertical translation of 1.15 units upward so that the curve aligned with the correct position in the image. This resulted in the function
-    <br><br>
-
-    f(x)=−0.9(10(x−0.3)⁻¹+1.15
-    <br><br>
-
-    which closely models the shape in the photograph.
-    <br><br>
-
-    <strong>Summary of Transformations:</strong>
-    <br><br>
-
-    • Reflection across the x-axis → x⁻¹→−x⁻¹
-    <br><br>
-
-    • Vertical compression by a factor of 0.9 → −x⁻¹→−0.9x⁻¹
-    <br><br>
-
-    • Horizontal compression by a factor of 1/10→ −0.9x⁻¹→−0.9(10x)⁻¹
-    <br><br>
-
-    • Horizontal translation of 0.3 units to the right → −0.9(10x)⁻¹→−0.9(10(x−0.3))⁻¹
-    <br><br>
-
-    • Vertical translation of 1.15 units upward → −0.9(10(x−0.3))⁻¹→−0.9(10(x−0.3))⁻¹+1.15
-    <br><br>
-
-    <strong>Domain and Range</strong>
-    <br><br>
-
-    The domain of my function is
-    <br><br>
-
-    D:{x∈R∣0.03≤x≤0.18}.
-    <br><br>
-
-    I limited the domain to the portion of the graph that was visible in the photograph. If I had taken the picture so that it included more of the object, the domain may have been larger. As a result, my model is only valid for the section captured in the image.
-    <br><br>
-
-    The parent function y=x⁻¹ has a domain ofD:{x∈R∣x≠0}and a range ofR:{y∈R∣y≠0}.This means the function is defined for all real x-values except x=0, because the denominator cannot equal zero. The parent function has a vertical asymptote at x=0 and a horizontal asymptote at y=0.
-    <br><br>
-
-    After applying transformations, my function also has asymptotes. The vertical asymptote occurs when the inside expression equals zero:10(x−0.3)=0.Solving this gives x=0.3.The vertical translation moves the horizontal asymptote from y=0 to y=1.15.However,since the restricted domain is 0.03≤x≤0.18,the vertical asymptote x=0.3 is not included in the visible section of the graph. Therefore, the function is continuous on the restricted interval.
-    <br><br>
-
-    Since the function is continuous on the restricted interval, the range can be determined by evaluating the function at the endpoints of the domain. Because this rational function increases over the given interval, the minimum value occurs at the left endpoint, and the maximum value occurs at the right endpoint. By evaluating at x=0.03, I obtained an approximate output value of 1.48. Then, by evaluating at x=0.18, I obtained an approximate output value of 1.90.
-    <br><br>
-
-    Therefore, the range of the function is approximately
-    <br><br>
-
-    R:{y∈R∣1.48≤y≤1.90}.
+I chose this photo because it brings back a really wonderful memory...
+f(x)=−0.9(10(x−0.3)⁻¹+1.15)
   </p>
-
 </div>
 
-      <!-- CARD 7 -->
+<!-- CARD 7 -->
 <div class="card">
-
-  <a href="#" target="_blank">
-    Logarithmic Function
-  </a>
-
-  <div class="iframe-container">
-    <iframe src="about:blank"></iframe>
-  </div>
-
-  <div class="section-heading">
-    Transformations
-  </div>
-
+  <a href="#">Logarithmic Function</a>
+  <div class="iframe-container"><iframe src="about:blank"></iframe></div>
+  <div class="section-heading">Transformations</div>
   <p>
-    I chose this photo because it was an unforgettable after-dinner walk. By the lake, I saw this sailboat-shaped landscape and thought it looked very beautiful. To model the curve appearing in the photo, I first determined that its shape is very similar to a logarithmic function, so I chose the parent function y=log(x) as my starting point. By observing the direction of the curve in the image, I noticed that the graph decreases from left to right rather than increasing. This indicates a reflection across the x-axis, so I modified the function to y=−log(x) to match the direction of the graph.
-    <br><br>
-
-    I then applied a vertical compression because the graph appeared flatter than the parent function, resulting in a coefficient of −0.4. Next, I considered the horizontal transformations. The expression inside the logarithm was 0.2(x+1.6). The x+1.6 shifts the graph horizontally 1.6 units to the left, placing the vertical asymptote at approximately x=−1.6. The factor 0.2 causes a horizontal stretch by a factor of 1/0.2=5, making the graph wider than the basic logarithmic function.
-    <br><br>
-
-    Finally, I applied a vertical translation of 0.8 units upward so that the curve aligned with the correct position in the image. This resulted in the function
-    <br><br>
-
-    f(x)=−0.4log(0.2(x+1.6))+0.8
-    <br><br>
-
-    which closely models the shape in the photograph.
-    <br><br>
-
-    <strong>Summary of Transformations:</strong>
-    <br><br>
-
-    • Reflection across the x-axis → log(x)→−log(x)
-    <br><br>
-
-    • Vertical compression by a factor of 0.4 → −log(x)→−0.4log(x)
-    <br><br>
-
-    • Horizontal stretch by a factor of 5 → −0.4log(x)→−0.4log(0.2x)
-    <br><br>
-
-    • Horizontal translation of 1.6 units to the left → −0.4log(0.2x)→−0.4log(0.2(x+1.6))
-    <br><br>
-
-    • Vertical translation of 0.8 units upward → −0.4log(0.2(x+1.6))→−0.4log(0.2(x+1.6))+0.8
-    <br><br>
-
-    <strong>Domain and Range</strong>
-    <br><br>
-
-    The domain of my function is
-    <br><br>
-
-    D:{x∈R∣−1.25≤x≤−0.65}.
-    <br><br>
-
-    I limited the domain to the portion of the graph that was visible in the photograph. If I had taken the picture so that it included more of the object, the domain may have been larger. As a result, my model is only valid for the section captured in the image.
-    <br><br>
-
-    The parent function y=log(x) has a domain ofD:{x∈R∣x>0}and a range ofR:{y∈R}.This means the function is defined only for positive x-values and can produce any real output value. The parent function has a vertical asymptote at x=0.
-    <br><br>
-
-    After applying transformations, my function also has a vertical asymptote. The vertical asymptote occurs when the inside expression equals zero:0.2(x+1.6)=0.Solving this gives x=−1.6.
-    However, since the restricted domain is −1.25≤x≤−0.65,
-    the vertical asymptote x=−1.6 is not included in the visible section of the graph. Therefore, the function is continuous on the restricted interval.
-    <br><br>
-
-    Since the function is continuous on the restricted interval, the range can be determined by evaluating the function at the endpoints of the domain. Because this logarithmic function decreases over the given interval, the maximum value occurs at the left endpoint, and the minimum value occurs at the right endpoint. By evaluating at x=−1.25, I obtained an approximate output value of 1.26. Then, by evaluating at x=−0.65, I obtained an approximate output value of 1.09.
-    <br><br>
-
-    Therefore, the range of the function is approximately
-    <br><br>
-
-    R:{y∈R∣1.09≤y≤1.26}.
+I chose this photo because it was an unforgettable after-dinner walk...
+f(x)=−0.4log(0.2(x+1.6))+0.8
   </p>
-
 </div>
 
-      <!-- CARD 8 -->
+<!-- CARD 8 -->
 <div class="card">
-
-  <a href="#" target="_blank">
-    Sine Function
-  </a>
-
-  <div class="iframe-container">
-    <iframe src="about:blank"></iframe>
-  </div>
-
-  <div class="section-heading">
-    Transformations
-  </div>
-
+  <a href="#">Sine Function</a>
+  <div class="iframe-container"><iframe src="about:blank"></iframe></div>
+  <div class="section-heading">Transformations</div>
   <p>
-    I chose this photo because it captures a really special moment from
-    Chinese New Year when I went back to my hometown and got to hang out
-    with my cousin's dog. He is my absolute favorite dog because he's
-    incredibly cute, friendly, and always makes my visits back home
-    memorable.
-    <br><br>
-
-    While looking at the picture, I noticed that the natural curve of the
-    dog's back and head while he was lying down followed a smooth,
-    wave-like pattern. This shape immediately reminded me of a sine
-    function, so I decided to use the parent function y = sin(x) as my
-    starting point to model it.
-    <br><br>
-
-    By analyzing the wave in the image, I could apply different
-    transformations to match the curve perfectly.
-    <br><br>
-
-    I then applied a vertical stretch because the graph appeared taller
-    than the parent function, resulting in a coefficient of 1.5.
-    <br><br>
-
-    Next, I considered the horizontal transformations. The expression
-    inside the sine function was −2.8(x−3.17). The x−3.17 shifts the graph
-    horizontally 3.17 units to the right.
-    <br><br>
-
-    The factor −2.8 causes a horizontal compression by a factor of 1/2.8,
-    making the graph narrower than the parent sine function.
-    <br><br>
-
-    The negative sign also represents a reflection across the y-axis,
-    which changes the direction of the wave.
-    <br><br>
-
-    Finally, I applied a vertical translation of 0.75 units downward so
-    that the midline of the graph aligned with the correct position in the
-    image.
-    <br><br>
-
-    This resulted in the function
-    <br><br>
-
-    f(x)=1.5sin(−2.8(x−3.17))−0.75
-    <br><br>
-
-    which closely models the shape in the photograph.
-    <br><br>
-
-    <strong>Summary of Transformations:</strong>
-    <br><br>
-
-    • Reflection across the y-axis → sin(x)→sin(−x)
-    <br><br>
-
-    • Vertical stretch by a factor of 1.5 →
-    sin(−x)→1.5sin(−x)
-    <br><br>
-
-    • Horizontal compression by a factor of 1/2.8 →
-    1.5sin(−x)→1.5sin(−2.8x)
-    <br><br>
-
-    • Horizontal translation of 3.17 units to the right →
-    1.5sin(−2.8x)→1.5sin(−2.8(x−3.17))
-    <br><br>
-
-    • Vertical translation of 0.75 units downward →
-    1.5sin(−2.8(x−3.17))→1.5sin(−2.8(x−3.17))−0.75
-    <br><br>
-
-    <strong>Domain and Range</strong>
-    <br><br>
-
-    The domain of my function is
-    <br><br>
-
-    D:{x∈R∣0.32≤x≤0.45}.
-    <br><br>
-
-    I limited the domain to the portion of the graph that was visible in
-    the photograph. If I had taken the picture so that it included more of
-    the object, the domain may have been larger. As a result, my model is
-    only valid for the section captured in the image.
-    <br><br>
-
-    The parent function y=sin(x) has a domain of D:{x∈R} and a range of
-    R:{y∈R∣−1≤y≤1}. This means the function is defined for all real
-    x-values and produces output values between −1 and 1.
-    <br><br>
-
-    The parent sine function has an amplitude of 1, a midline of y=0, and
-    a period of 2π.
-    <br><br>
-
-    Unlike rational, logarithmic, tangent, secant, or cosecant functions,
-    the sine function does not have any asymptotes.
-    <br><br>
-
-    After applying transformations, the amplitude becomes 1.5, and the
-    midline becomes y=−0.75.
-    <br><br>
-
-    The period of the transformed function is 2π/2.8 ≈ 2.24.
-    <br><br>
-
-    Since the function is restricted to the interval 0.32≤x≤0.45, the
-    range can be determined by evaluating the function at the endpoints and
-    at the maximum point within the restricted domain.
-    <br><br>
-
-    Since the function is continuous on the restricted interval, the range
-    can be determined by evaluating the function at the key points of the
-    domain.
-    <br><br>
-
-    The maximum value occurs near x=0.365, where the output value is
-    approximately 0.75.
-    <br><br>
-
-    Then, by evaluating the endpoints x=0.32 and x=0.45, I obtained
-    approximate output values of 0.74 and 0.71.
-    <br><br>
-
-    Therefore, the range of the function is approximately
-    <br><br>
-
-    R:{y∈R∣0.71≤y≤0.75}.
+I chose this photo because it captures a really special moment...
+f(x)=1.5sin(−2.8(x−3.17))−0.75
   </p>
-
 </div>
 
-      <!-- CARD 9 -->
+<!-- CARD 9 -->
 <div class="card">
-
-  <a href="#" target="_blank">
-    Rational Squared Function
-  </a>
-
-  <div class="iframe-container">
-    <iframe src="about:blank"></iframe>
-  </div>
-
-  <div class="section-heading">
-    Transformations
-  </div>
-
+  <a href="#">Rational Squared Function</a>
+  <div class="iframe-container"><iframe src="about:blank"></iframe></div>
+  <div class="section-heading">Transformations</div>
   <p>
-    I chose this photo because it captures a funny moment of me relaxing
-    on the big blue seating structure at the Sunway University campus after
-    studying in the library.
-    <br><br>
-
-    While lying down, I noticed that the curved edge of this seating area
-    has a smooth, dipping shape that looks exactly like a reciprocal
-    squared function.
-    <br><br>
-
-    To model the curve appearing in the photo, I first determined that its
-    shape is very similar to a rational function, so I chose the parent
-    function y=x⁻¹ as my starting point.
-    <br><br>
-
-    By observing the curve in the image, I noticed that the graph follows
-    the shape of one branch of a reciprocal function, which approaches
-    asymptotes but does not touch them.
-    <br><br>
-
-    I then applied a reflection across the x-axis because of the negative
-    coefficient in front of the function.
-    <br><br>
-
-    This changed the orientation of the graph and helped it match the
-    direction of the curve in the photo.
-    <br><br>
-
-    I also applied a vertical compression because the graph appeared less
-    steep than the parent function, resulting in a coefficient of −0.9.
-    <br><br>
-
-    Next, I considered the horizontal transformations. The expression
-    inside the function was 10(x−0.3).
-    <br><br>
-
-    The x−0.3 shifts the graph horizontally 0.3 units to the right,
-    placing the vertical asymptote at approximately x=0.3.
-    <br><br>
-
-    The factor 10 causes a horizontal compression by a factor of 1/10,
-    making the graph narrower than the basic reciprocal function.
-    <br><br>
-
-    Finally, I applied a vertical translation of 1.15 units upward so that
-    the curve aligned with the correct position in the image.
-    <br><br>
-
-    This resulted in the function
-    <br><br>
-
-    f(x)=−0.9(10(x−0.3)⁻¹+1.15
-    <br><br>
-
-    which closely models the shape in the photograph.
-    <br><br>
-
-    <strong>Summary of Transformations:</strong>
-    <br><br>
-
-    • Reflection across the x-axis → x⁻¹→−x⁻¹
-    <br><br>
-
-    • Vertical compression by a factor of 0.9 →
-    −x⁻¹→−0.9x⁻¹
-    <br><br>
-
-    • Horizontal compression by a factor of 1/10 →
-    −0.9x⁻¹→−0.9(10x)⁻¹
-    <br><br>
-
-    • Horizontal translation of 0.3 units to the right →
-    −0.9(10x)⁻¹→−0.9(10(x−0.3))⁻¹
-    <br><br>
-
-    • Vertical translation of 1.15 units upward →
-    −0.9(10(x−0.3))⁻¹→−0.9(10(x−0.3))⁻¹+1.15
-    <br><br>
-
-    <strong>Domain and Range</strong>
-    <br><br>
-
-    The domain of my function is
-    <br><br>
-
-    D:{x∈R∣0.03≤x≤0.18}.
-    <br><br>
-
-    I limited the domain to the portion of the graph that was visible in
-    the photograph. If I had taken the picture so that it included more of
-    the object, the domain may have been larger. As a result, my model is
-    only valid for the section captured in the image.
-    <br><br>
-
-    The parent function y=x⁻¹ has a domain of
-    D:{x∈R∣x≠0} and a range of
-    R:{y∈R∣y≠0}.
-    <br><br>
-
-    This means the function is defined for all real x-values except x=0,
-    because the denominator cannot equal zero.
-    <br><br>
-
-    The parent function has a vertical asymptote at x=0 and a horizontal
-    asymptote at y=0.
-    <br><br>
-
-    After applying transformations, my function also has asymptotes.
-    <br><br>
-
-    The vertical asymptote occurs when the inside expression equals zero:
-    10(x−0.3)=0.
-    <br><br>
-
-    Solving this gives x=0.3.
-    <br><br>
-
-    The vertical translation moves the horizontal asymptote from y=0 to
-    y=1.15.
-    <br><br>
-
-    However, since the restricted domain is 0.03≤x≤0.18, the vertical
-    asymptote x=0.3 is not included in the visible section of the graph.
-    Therefore, the function is continuous on the restricted interval.
-    <br><br>
-
-    Since the function is continuous on the restricted interval, the range
-    can be determined by evaluating the function at the endpoints of the
-    domain.
-    <br><br>
-
-    Because this rational function increases over the given interval, the
-    minimum value occurs at the left endpoint, and the maximum value occurs
-    at the right endpoint.
-    <br><br>
-
-    By evaluating at x=0.03, I obtained an approximate output value of
-    1.48.
-    <br><br>
-
-    Then, by evaluating at x=0.18, I obtained an approximate output value
-    of 1.90.
-    <br><br>
-
-    Therefore, the range of the function is approximately
-    <br><br>
-
-    R:{y∈R∣1.48≤y≤1.90}.
+I chose this photo because it captures a funny moment...
+f(x)=−0.9(10(x−0.3)⁻¹+1.15)
   </p>
-
 </div>
 
+</div>
+</div>
+
+</body>
+</html>
 
