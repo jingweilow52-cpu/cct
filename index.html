@@ -7,6 +7,10 @@
 
   <style>
 
+    *{
+      box-sizing:border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -57,16 +61,28 @@
       background: white;
       border-radius: 22px;
       padding: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
     }
 
     .card a {
       display: block;
       text-align: center;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
-      color: black;
+      color: #1f1f1f;
       margin-bottom: 15px;
-      text-decoration: underline;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .card a:hover {
+      color: #2f80ed;
     }
 
     .iframe-container {
@@ -74,7 +90,7 @@
       width: 100%;
       padding-top: 75%;
       overflow: hidden;
-      border-radius: 8px;
+      border-radius: 12px;
       margin-bottom: 20px;
     }
 
@@ -125,8 +141,7 @@
 
         <div class="iframe-container">
           <iframe
-            src="https://www.desmos.com/calculator/pi296p7esf?embed"
-            frameborder="0">
+            src="https://www.desmos.com/calculator/pi296p7esf?embed">
           </iframe>
         </div>
 
@@ -135,36 +150,25 @@
         </div>
 
         <p>
-          I chose this photo because the Petronas Twin Towers are an iconic
-          landmark of Malaysia, and I find them very interesting. This is a
-          photo I took during my first visit there.
+          I chose this photo because the Petronas Twin Towers are an iconic landmark of Malaysia and I find them very interesting.
           <br><br>
 
-          To model the sign appearing in the photo, I first determined that
-          its shape closely resembles an absolute value function, so I chose
-          the parent function y = |x| as my starting point.
+          To model the sign appearing in the photo, I first determined that its shape is very similar to an absolute value function, so I chose the parent function y = |x| as my starting point.
           <br><br>
 
-          By observing the direction of the angle formed by the two rays in
-          the image, I noticed that it opens downward rather than upward.
-          This indicates a reflection across the x-axis, so I modified the
-          function to y = -|x| to match the orientation of the graph.
+          By observing the direction of the angle formed by the two rays in the image, I noticed that it opens downward rather than upward. This indicates a reflection across the x-axis, so I modified the function to y = -|x|.
           <br><br>
 
-          I then applied a vertical stretch because the graph appeared steeper
-          than the parent function, resulting in a coefficient of −1.6.
-          Next, I considered the horizontal transformations. The expression
-          inside the absolute value was 0.9(x + 3.9). The x + 3.9 shifts the
-          graph horizontally 3.9 units to the left, placing the vertex at
-          approximately x = −3.9. The factor 0.9 causes a slight horizontal
-          stretch, making the graph wider than the basic absolute value function.
+          I then applied a vertical stretch with coefficient −1.6.
           <br><br>
 
-          Finally, I applied a vertical translation of 15.8 units upward so
-          that the vertex aligned with the highest point of the graph in the
-          image. This resulted in the function
+          The expression 0.9(x+3.9) shifts the graph 3.9 units left and creates a slight horizontal stretch.
+          <br><br>
+
+          Finally, I translated the graph upward by 15.8 units.
+          <br><br>
+
           f(x)=−1.6|0.9(x+3.9)|+15.8
-          which closely models the shape in the photograph.
         </p>
 
         <div class="section-heading">
@@ -172,25 +176,11 @@
         </div>
 
         <p>
-          The domain of my function is
-          D:{x∈R | −8≤x≤0}.
-          I limited the domain to the portion of the graph visible in the
-          photograph. Therefore, my model is only valid for the section shown
-          in the image.
+          Domain:
+          D:{x∈R | −8≤x≤0}
           <br><br>
 
-          The parent function y = |x| has a domain of all real numbers and
-          a range of y ≥ 0. After applying the transformations, the graph
-          opens downward because of the reflection across the x-axis, causing
-          the vertex to become the maximum point of the graph.
-          <br><br>
-
-          By evaluating the function at x = −3.9, I obtained a maximum value
-          of approximately 15.8. Evaluating the endpoints x = −8 and x = 0
-          produced approximate values of 9.90 and 10.18.
-          <br><br>
-
-          Therefore, the range of the function is approximately:
+          Range:
           R:{y∈R | 9.90≤y≤15.80}
         </p>
 
@@ -206,8 +196,7 @@
 
         <div class="iframe-container">
           <iframe
-            src="https://www.desmos.com/calculator/dqq1jefht2?embed"
-            frameborder="0">
+            src="https://www.desmos.com/calculator/dqq1jefht2?embed">
           </iframe>
         </div>
 
@@ -216,35 +205,25 @@
         </div>
 
         <p>
-          I chose this photo because it captures one of my memorable
-          experiences in Malaysia. While visiting Sunway South Quay Lake,
-          I noticed this large squirrel sculpture and was immediately attracted
-          by its curved tail and unique design.
+          I chose this photo because it captures one of my memorable experiences in Malaysia.
           <br><br>
 
-          To model the curve appearing in the photo, I first determined that
-          its shape closely resembles a secant function, so I chose the
-          parent function y = sec(x) as my starting point.
+          I modeled the curve using the parent function y = sec(x).
           <br><br>
 
-          By observing the direction of the curve in the image, I noticed that
-          the graph opens downward rather than upward. This indicates a
-          reflection across the x-axis, so I modified the function to
-          y = -sec(x) to match the orientation of the graph.
+          The graph opens downward, so I reflected it across the x-axis.
           <br><br>
 
-          I then applied a vertical stretch because the graph appeared steeper
-          than the parent function, resulting in a coefficient of −4.6.
-          Next, I considered the horizontal transformations. The expression
-          inside the secant function was 1.195(x−0.865). The x−0.865 shifts
-          the graph horizontally 0.865 units to the right, while the factor
-          1.195 causes a horizontal compression.
+          I applied a vertical stretch by a factor of 4.6.
           <br><br>
 
-          Finally, I applied a vertical translation of 5.8 units upward,
-          resulting in the function
+          The expression 1.195(x−0.865) compresses the graph horizontally and shifts it right by 0.865 units.
+          <br><br>
+
+          Finally, I translated the graph upward by 5.8 units.
+          <br><br>
+
           f(x)=−4.6sec(1.195(x−0.865))+5.8
-          which closely models the shape in the photograph.
         </p>
 
         <div class="section-heading">
@@ -252,24 +231,11 @@
         </div>
 
         <p>
-          The domain of my function is
-          D:{x∈R | 0.6≤x≤1.05}.
-          I restricted the domain to the visible section of the graph in
-          the photograph.
+          Domain:
+          D:{x∈R | 0.6≤x≤1.05}
           <br><br>
 
-          The parent secant function is undefined whenever cosine equals zero,
-          meaning the function contains discontinuities and vertical asymptotes.
-          After applying the transformations, the graph opens downward because
-          of the reflection across the x-axis.
-          <br><br>
-
-          By evaluating the function at x = 0.865, I obtained an approximate
-          maximum value of 1.20. Evaluating the endpoints produced values of
-          approximately 0.96 and 1.09.
-          <br><br>
-
-          Therefore, the range of the function is approximately:
+          Range:
           R:{y∈R | 0.96≤y≤1.20}
         </p>
 
@@ -280,13 +246,12 @@
 
         <a href="https://www.desmos.com/calculator/uxb0zr4d5f"
            target="_blank">
-          Section Title
+          Exponential Function
         </a>
 
         <div class="iframe-container">
           <iframe
-            src="https://www.desmos.com/calculator/uxb0zr4d5f?embed"
-            frameborder="0">
+            src="https://www.desmos.com/calculator/uxb0zr4d5f?embed">
           </iframe>
         </div>
 
@@ -295,7 +260,35 @@
         </div>
 
         <p>
-          Write your paragraph here.
+          I chose this photo because of its striking artistic appeal.
+          <br><br>
+
+          I modeled the curve using the parent function y = 2.1<sup>x</sup>.
+          <br><br>
+
+          The graph increases from left to right, matching exponential growth.
+          <br><br>
+
+          The expression 2.6(x−1.2) compresses the graph horizontally and shifts it right by 1.2 units.
+          <br><br>
+
+          Finally, I translated the graph upward by 0.8 units.
+          <br><br>
+
+          f(x)=2.1<sup>2.6(x−1.2)</sup>+0.8
+        </p>
+
+        <div class="section-heading">
+          Domain and Range
+        </div>
+
+        <p>
+          Domain:
+          D:{x∈R | −0.1≤x≤1.3}
+          <br><br>
+
+          Range:
+          R:{y∈R | 0.88≤y≤2.01}
         </p>
 
       </div>
@@ -310,8 +303,7 @@
 
         <div class="iframe-container">
           <iframe
-            src="https://www.desmos.com/calculator/lpeby7qcpm?embed"
-            frameborder="0">
+            src="https://www.desmos.com/calculator/lpeby7qcpm?embed">
           </iframe>
         </div>
 
@@ -320,33 +312,25 @@
         </div>
 
         <p>
-          I chose this photo because this waterfall is one of the most
-          spectacular artificial waterfalls I have seen in Malaysia.
+          I chose this photo because this waterfall is one of the most spectacular artificial waterfalls I have seen in Malaysia.
           <br><br>
 
-          To model the symbol appearing in the photograph, I noticed that
-          its shape closely resembles a polynomial function of degree 3,
-          so I selected the parent function y = x³ as my starting point.
+          I modeled the symbol using the parent function y = x³.
           <br><br>
 
-          By observing the direction of the curve in the image, I noticed that
-          the graph increases from left to right in the same orientation as
-          the parent cubic function because the leading coefficient is positive.
-          Therefore, no reflection across the x-axis was required.
+          The graph keeps the same orientation, so no reflection was needed.
           <br><br>
 
-          I then applied a vertical stretch because the graph appeared steeper
-          than the parent function, resulting in a coefficient of 3.2.
-          Next, I considered the horizontal transformations. The expression
-          inside the cubic function was 1.1(x+0.9). The x+0.9 shifts the graph
-          horizontally 0.9 units to the left, while the factor 1.1 causes a
-          horizontal compression.
+          I applied a vertical stretch by a factor of 3.2.
           <br><br>
 
-          Finally, I applied a vertical translation of 1.85 units upward,
-          resulting in the function
+          The expression 1.1(x+0.9) compresses the graph horizontally and shifts it left by 0.9 units.
+          <br><br>
+
+          Finally, I translated the graph upward by 1.85 units.
+          <br><br>
+
           f(x)=3.2(1.1(x+0.9))³+1.85
-          which closely models the shape in the photograph.
         </p>
 
         <div class="section-heading">
@@ -354,22 +338,11 @@
         </div>
 
         <p>
-          The domain of my function is
-          D:{x∈R | −1.38≤x≤−0.67}.
-          I limited the domain to the portion visible in the photograph.
+          Domain:
+          D:{x∈R | −1.38≤x≤−0.67}
           <br><br>
 
-          The parent function y = x³ has a domain and range of all real
-          numbers. After applying the transformations, the inflection point
-          shifts to approximately (−0.9,1.85).
-          <br><br>
-
-          Because the function is increasing on the restricted interval,
-          the minimum value occurs at the left endpoint and the maximum value
-          occurs at the right endpoint.
-          <br><br>
-
-          Therefore, the range of the function is approximately:
+          Range:
           R:{y∈R | 1.38≤y≤1.90}
         </p>
 
@@ -380,13 +353,12 @@
 
         <a href="https://www.desmos.com/calculator/zokxoma2ck"
            target="_blank">
-          Section Title
+          Polynomial Function of Degree 2
         </a>
 
         <div class="iframe-container">
           <iframe
-            src="https://www.desmos.com/calculator/zokxoma2ck?embed"
-            frameborder="0">
+            src="https://www.desmos.com/calculator/zokxoma2ck?embed">
           </iframe>
         </div>
 
@@ -395,7 +367,38 @@
         </div>
 
         <p>
-          Write your paragraph here.
+          I picked this photo because the curved shape resembles a parabola.
+          <br><br>
+
+          I modeled it using the parent function y = x².
+          <br><br>
+
+          The graph opens upward, so no reflection was needed.
+          <br><br>
+
+          I applied a vertical compression by a factor of 0.2.
+          <br><br>
+
+          The expression −1.3(x+1.2) compresses the graph horizontally and shifts it left by 1.2 units.
+          <br><br>
+
+          Finally, I translated the graph upward by 0.64 units.
+          <br><br>
+
+          f(x)=0.2(−1.3(x+1.2))²+0.64
+        </p>
+
+        <div class="section-heading">
+          Domain and Range
+        </div>
+
+        <p>
+          Domain:
+          D:{x∈R | −1.25≤x≤−0.6}
+          <br><br>
+
+          Range:
+          R:{y∈R | 0.64≤y≤0.76}
         </p>
 
       </div>
@@ -405,13 +408,12 @@
 
         <a href="https://www.desmos.com/calculator/lrpfooktmk"
            target="_blank">
-          Section Title
+          Rational Function
         </a>
 
         <div class="iframe-container">
           <iframe
-            src="https://www.desmos.com/calculator/lrpfooktmk?embed"
-            frameborder="0">
+            src="https://www.desmos.com/calculator/lrpfooktmk?embed">
           </iframe>
         </div>
 
@@ -420,7 +422,35 @@
         </div>
 
         <p>
-          Write your paragraph here.
+          I chose this photo because it reminds me of a wonderful trip to Desaru Beach.
+          <br><br>
+
+          I modeled the curve using the parent function y = x<sup>−1</sup>.
+          <br><br>
+
+          The graph was reflected across the x-axis and vertically compressed.
+          <br><br>
+
+          The expression 10(x−0.3) compresses the graph horizontally and shifts it right by 0.3 units.
+          <br><br>
+
+          Finally, I translated the graph upward by 1.15 units.
+          <br><br>
+
+          f(x)=−0.9(10(x−0.3))<sup>−1</sup>+1.15
+        </p>
+
+        <div class="section-heading">
+          Domain and Range
+        </div>
+
+        <p>
+          Domain:
+          D:{x∈R | 0.03≤x≤0.18}
+          <br><br>
+
+          Range:
+          R:{y∈R | 1.48≤y≤1.90}
         </p>
 
       </div>
@@ -430,13 +460,12 @@
 
         <a href="https://www.desmos.com/calculator/fymb2ka7px"
            target="_blank">
-          Section Title
+          Logarithmic Function
         </a>
 
         <div class="iframe-container">
           <iframe
-            src="https://www.desmos.com/calculator/fymb2ka7px?embed"
-            frameborder="0">
+            src="https://www.desmos.com/calculator/fymb2ka7px?embed">
           </iframe>
         </div>
 
@@ -445,7 +474,38 @@
         </div>
 
         <p>
-          Write your paragraph here.
+          I chose this photo because the sailboat-shaped landscape resembled a logarithmic curve.
+          <br><br>
+
+          I modeled the graph using the parent function y = log(x).
+          <br><br>
+
+          The graph decreases from left to right, so I reflected it across the x-axis.
+          <br><br>
+
+          I applied a vertical compression by a factor of 0.4.
+          <br><br>
+
+          The expression 0.2(x+1.6) stretches the graph horizontally and shifts it left by 1.6 units.
+          <br><br>
+
+          Finally, I translated the graph upward by 0.8 units.
+          <br><br>
+
+          f(x)=−0.4log(0.2(x+1.6))+0.8
+        </p>
+
+        <div class="section-heading">
+          Domain and Range
+        </div>
+
+        <p>
+          Domain:
+          D:{x∈R | −1.25≤x≤−0.65}
+          <br><br>
+
+          Range:
+          R:{y∈R | 1.09≤y≤1.26}
         </p>
 
       </div>
@@ -455,13 +515,12 @@
 
         <a href="https://www.desmos.com/calculator/udzktbtzjm"
            target="_blank">
-          Section Title
+          Sine Function
         </a>
 
         <div class="iframe-container">
           <iframe
-            src="https://www.desmos.com/calculator/udzktbtzjm?embed"
-            frameborder="0">
+            src="https://www.desmos.com/calculator/udzktbtzjm?embed">
           </iframe>
         </div>
 
@@ -470,7 +529,35 @@
         </div>
 
         <p>
-          Write your paragraph here.
+          I chose this photo because it captures a special moment during Chinese New Year with my cousin’s dog.
+          <br><br>
+
+          I modeled the curve using the parent function y = sin(x).
+          <br><br>
+
+          I applied a vertical stretch by a factor of 1.5.
+          <br><br>
+
+          The expression −2.8(x−3.17) reflects the graph across the y-axis and compresses it horizontally.
+          <br><br>
+
+          Finally, I translated the graph downward by 0.75 units.
+          <br><br>
+
+          f(x)=1.5sin(−2.8(x−3.17))−0.75
+        </p>
+
+        <div class="section-heading">
+          Domain and Range
+        </div>
+
+        <p>
+          Domain:
+          D:{x∈R | 0.32≤x≤0.45}
+          <br><br>
+
+          Range:
+          R:{y∈R | 0.71≤y≤0.75}
         </p>
 
       </div>
@@ -480,13 +567,12 @@
 
         <a href="https://www.desmos.com/calculator/gyetms17zw"
            target="_blank">
-          Section Title
+          Rational Squared Function
         </a>
 
         <div class="iframe-container">
           <iframe
-            src="https://www.desmos.com/calculator/gyetms17zw?embed"
-            frameborder="0">
+            src="https://www.desmos.com/calculator/gyetms17zw?embed">
           </iframe>
         </div>
 
@@ -495,7 +581,38 @@
         </div>
 
         <p>
-          Write your paragraph here.
+          I chose this photo because it captures a funny moment relaxing at Sunway University.
+          <br><br>
+
+          The seating structure resembled a reciprocal-style graph.
+          <br><br>
+
+          I modeled the graph using the parent function y = x<sup>−1</sup>.
+          <br><br>
+
+          I reflected the graph across the x-axis and compressed it vertically.
+          <br><br>
+
+          The expression 10(x−0.3) compresses the graph horizontally and shifts it right by 0.3 units.
+          <br><br>
+
+          Finally, I translated the graph upward by 1.15 units.
+          <br><br>
+
+          f(x)=−0.9(10(x−0.3))<sup>−1</sup>+1.15
+        </p>
+
+        <div class="section-heading">
+          Domain and Range
+        </div>
+
+        <p>
+          Domain:
+          D:{x∈R | 0.03≤x≤0.18}
+          <br><br>
+
+          Range:
+          R:{y∈R | 1.48≤y≤1.90}
         </p>
 
       </div>
