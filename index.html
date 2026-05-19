@@ -1,37 +1,136 @@
 <!DOCTYPE html>
-      font-weight:700;
-      color:var(--green);
-      margin:10px 0;
-      text-transform:uppercase;
-      letter-spacing:1px;
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Time in Malaysia</title>
+
+  <style>
+
+    *{
+      box-sizing:border-box;
     }
 
-    .card p{
-      font-size:14px;
-      line-height:1.6;
-      color:var(--muted);
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #2f80ed;
     }
 
-    /* subtle glow scrollbar */
-    ::-webkit-scrollbar{
-      width:8px;
+    header {
+      text-align: center;
+      color: white;
+      padding: 30px 20px 10px;
     }
 
-    ::-webkit-scrollbar-thumb{
-      background:linear-gradient(var(--cyan),var(--green));
-      border-radius:10px;
+    header h1 {
+      font-size: 52px;
+      margin: 0;
+      font-weight: bold;
     }
+
+    .container {
+      width: 95%;
+      margin: auto;
+      padding-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    @media (max-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 38px;
+      }
+    }
+
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    }
+
+    .card a {
+      display: block;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #1f1f1f;
+      margin-bottom: 15px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .card a:hover {
+      color: #2f80ed;
+    }
+
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-top: 75%;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .section-heading {
+      color: #4f8f73;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      margin-top: 0;
+    }
+
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>My Time in Malaysia</h1>
-</header>
+  <header>
+    <h1>My Time in Malaysia</h1>
+  </header>
 
-<div class="container">
-  <div class="grid">
+  <div class="container">
+
+    <div class="grid">
+
       <!-- CARD 1 -->
 <div class="card">
 
@@ -973,3 +1072,5 @@
   </p>
 
 </div>
+
+
